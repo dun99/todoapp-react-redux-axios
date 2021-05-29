@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function TaskItem(props) {
   let onDeleteItem = (id) => {
-    if (confirm("Are you sure? ")) {
+    if (confirm("Bạn có chắc chắn muốn xóa? ")) {
       props.onDelete(id);
     }
   };
@@ -17,7 +17,7 @@ function TaskItem(props) {
             props.task.status === true ? "badge badge-secondary badge-warning p-3" : "badge  badge-secondary badge-success p-3"
           }
         >
-          {props.task.status === true ? "True" : "False"}
+          {props.task.status === true ? "Done" : "Doing"}
         </span>
       </td>
       <td>
@@ -26,14 +26,14 @@ function TaskItem(props) {
           type="submit"
           className="btn btn-primary"
         >
-          Edit
+          Sửa
         </Link>
         <button
           type="button"
           className="btn btn-danger ml-3"
           onClick={() => onDeleteItem(props.task.id)}
         >
-          Delete
+          Xóa
         </button>
       </td>
     </tr>

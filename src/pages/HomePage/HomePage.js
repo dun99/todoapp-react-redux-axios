@@ -76,7 +76,7 @@ function HomePage(props) {
             <div className="card-header font-weight-bold"> Todo List </div>
             <div className="card-body">
               <Link to="/task/add" type="button" className="btn btn-primary">
-                Add
+                Thêm công việc
               </Link>
 
               <br />

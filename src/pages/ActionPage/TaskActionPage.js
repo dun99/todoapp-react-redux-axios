@@ -44,12 +44,12 @@ function TaskActionPage(props) {
     <div className="container add-card">
       <div className="card">
         <div className="card-header">
-          <h4>{!item.id ? "Add" : "Update"}</h4>
+          <h4>{!item.id ? "Thêm công việc" : "Cập nhật công việc"}</h4>
         </div>
 
         <div className="card-body">
           <form className="form-group" onSubmit={save}>
-            <label>Name</label>
+            <label>Tên công việc</label>
             <input
               type="text"
               className="form-control"
@@ -59,22 +59,22 @@ function TaskActionPage(props) {
             />
             <br />
 
-            <label>Status</label>
+            <label>Trạng thái</label>
             <select
               className="form-control"
               name="status"
               value={item.status}
               onChange={onAddItem}
             >
-              <option value={false}>False</option>
-              <option value={true}>True</option>
+              <option value={false}>Doing</option>
+              <option value={true}>Done</option>
             </select>
             <br />
             <button type="submit" className="btn btn-primary ">
-              Save
+              Lưu
             </button>
             <Link to="/" type="button" className="btn btn-danger ml-3">
-              Back
+              Quay lại
             </Link>
           </form>
         </div>

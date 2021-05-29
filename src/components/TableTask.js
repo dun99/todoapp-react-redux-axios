@@ -1,5 +1,4 @@
 import React from "react";
-import {BiSearch} from 'react-icons/bi'
 function TableTask(props) {
   let filter = props.filter;
   // filter input
@@ -14,10 +13,10 @@ function TableTask(props) {
       <table className="table table-bordered">
         <thead>
           <tr>
-            <th>Index</th>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th>STT</th>
+            <th>Tên công việc</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +28,7 @@ function TableTask(props) {
                   type="text"
                   className="form-control form-search"
                   name="filterName"
-                  placeholder="Search"
+                  placeholder="Tìm kiếm"
                   value={filter.filterName}
                   onChange={onChange}
                 />
@@ -46,9 +45,9 @@ function TableTask(props) {
                 value={filter.filterStatus}
                 onChange={onChange}
               >
-                <option value={-1}>All</option>
-                <option value={0}>False</option>
-                <option value={1}>True</option>
+                <option value={-1}>Tất cả</option>
+                <option value={0}>Doing</option>
+                <option value={1}>Done</option>
               </select>
             </td>
             <td></td>
