@@ -1,46 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function TaskItem(props) {
-  var task = props.task;
-  var index = props.index;
-  //  update trang thai
-  function onUpdateStatus() {
-    props.onUpdateStatus(props.task.id);
-  }
-  // xoa cong viec
-  function onDeleteItem() {
-    props.onDeleteItem(props.task.id);
-  }
-  //cap nhat cong viec
-  let onUpdateItem = () => {
-    props.onUpdateItem(props.task.id);
+  let onDeleteItem = (id) => {
+    if (confirm("Are you sure? ")) {
+      props.onDelete(id);
+    }
   };
-  
+
   return (
     <tr>
-      <td>{index + 1}</td>
-      <td>{task.name}</td>
-      <td>
+      <td>{props.index + 1}</td>
+      <td>{props.task.name}</td>
+      <td className="text-center">
         <span
           className={
-            task.status === true ? "btn btn-warning" : "btn btn-success"
+            props.task.status === true ? "badge badge-secondary badge-warning p-3" : "badge  badge-secondary badge-success p-3"
           }
-          onClick={() => onUpdateStatus()}
         >
-          {task.status === true ? "True" : "False"}
+          {props.task.status === true ? "True" : "False"}
         </span>
       </td>
       <td>
-        <button
+        <Link
+          to={`/task/${props.task.id}/edit`}
           type="submit"
           className="btn btn-primary"
-          onClick={onUpdateItem}
         >
           Edit
-        </button>
+        </Link>
         <button
           type="button"
           className="btn btn-danger ml-3"
-          onClick={() => onDeleteItem()}
+          onClick={() => onDeleteItem(props.task.id)}
         >
           Delete
         </button>
